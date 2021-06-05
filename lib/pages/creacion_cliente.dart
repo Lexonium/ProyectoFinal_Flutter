@@ -86,7 +86,7 @@ class _CreacionClientePageState extends State<CreacionClientePage> {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(20.0),
       ),
-      color: Colors.deepPurple,
+      color: Colors.orangeAccent,
       textColor: Colors.white,
       onPressed: (_guardando) ? null : _submit,
       icon: Icon(Icons.save),

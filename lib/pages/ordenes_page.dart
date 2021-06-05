@@ -21,8 +21,8 @@ class _OrdenesPageState extends State<OrdenesPage> {
 
   Widget _crearBoton(BuildContext context) {
     return FloatingActionButton(
-      child: Icon(Icons.add),
-      backgroundColor: Colors.deepPurple,
+      child: Icon(Icons.add_shopping_cart_rounded),
+      backgroundColor: Colors.orangeAccent,
       onPressed: () => Navigator.pushNamed(context, 'creaord')
           .then((value) => setState(() {})),
     );
@@ -57,32 +57,25 @@ class _OrdenesPageState extends State<OrdenesPage> {
         ordenesProvider.eliminarOrdenes(ord.idOrden);
       },
       child: Card(
-        child: Column(
-          children: [
-            ListTile(
-              title: Text('${ord.idOrden} - para : ${ord.nombreCliente}'),
-              subtitle: Text(
-                  '${ord.nombreProducto} x ${ord.cantidadproducto}, total: ${ord.total}'),
+        child: ListTile(
+          leading: IconButton(
+            icon: Icon(Icons.add_shopping_cart_rounded),
+            onPressed: () =>
+                Navigator.pushNamed(context, 'creaord', arguments: ord)
+                    .then((value) => setState(() {})),
+          ),
+          title: Text('${ord.idOrden} - para : ${ord.nombreCliente}'),
+          subtitle: Text(
+              '${ord.nombreProducto} x ${ord.cantidadproducto}, total: ${ord.total}'),
+          trailing: IconButton(
+            icon: Icon(
+              Icons.assistant_navigation,
+              color: Colors.blueAccent,
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                        primary: Colors.redAccent,
-                        padding: EdgeInsets.all(5.0)),
-                    onPressed: () =>
-                        Navigator.pushNamed(context, 'creaord', arguments: ord)
-                            .then((value) => setState(() {})),
-                    child: Text('Modificar Orden')),
-                ElevatedButton(
-                    onPressed: () =>
-                        Navigator.pushNamed(context, 'mapa', arguments: ord)
-                            .then((value) => setState(() {})),
-                    child: Text('Mostrar Ruta'))
-              ],
-            )
-          ],
+            onPressed: () =>
+                Navigator.pushNamed(context, 'mapa', arguments: ord)
+                    .then((value) => setState(() {})),
+          ),
         ),
       ),
     );
