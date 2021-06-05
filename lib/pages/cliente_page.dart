@@ -21,8 +21,8 @@ class _ClientePageState extends State<ClientePage> {
 
   Widget _crearBoton(BuildContext context) {
     return FloatingActionButton(
-      child: Icon(Icons.add),
-      backgroundColor: Colors.deepPurple,
+      child: Icon(Icons.person_add_alt_1),
+      backgroundColor: Colors.orangeAccent,
       onPressed: () => Navigator.pushNamed(context, 'creacli')
           .then((value) => setState(() {})),
     );
@@ -60,6 +60,7 @@ class _ClientePageState extends State<ClientePage> {
         child: Column(
           children: [
             ListTile(
+              leading: Icon(Icons.person_outline_rounded),
               title: Text('${prod.nombre}'),
               subtitle: Text('${prod.direccion}'),
               onTap: () =>

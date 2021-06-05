@@ -22,7 +22,7 @@ class _ProductoPageState extends State<ProductoPage> {
   Widget _crearBoton(BuildContext context) {
     return FloatingActionButton(
       child: Icon(Icons.add),
-      backgroundColor: Colors.deepPurple,
+      backgroundColor: Colors.orangeAccent,
       onPressed: () => Navigator.pushNamed(context, 'creapro')
           .then((value) => setState(() {})),
     );

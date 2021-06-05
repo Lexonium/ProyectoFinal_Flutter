@@ -21,8 +21,8 @@ class _EmpleadoPageState extends State<EmpleadoPage> {
 
   Widget _crearBoton(BuildContext context) {
     return FloatingActionButton(
-      child: Icon(Icons.add),
-      backgroundColor: Colors.deepPurple,
+      child: Icon(Icons.person_add_alt_1),
+      backgroundColor: Colors.orangeAccent,
       onPressed: () => Navigator.pushNamed(context, 'creaemp')
           .then((value) => setState(() {})),
     );
